@@ -3,14 +3,15 @@
     "version": "1.0.2",
     "productName": "BIZAKI",
     "appId": "online.bizaki.app",
-    "author": "Bizaki",
-    "description": "",
+    "description": "Bizaki voice chat desktop app",
     "main": "main.js",
-    "type": "commonjs",
     "scripts": {
         "start": "electron .",
         "dist": "electron-builder"
     },
+    "author": "Bizaki",
+    "license": "ISC",
+    "type": "commonjs",
     "devDependencies": {
         "electron": "^40.1.0",
         "electron-builder": "^26.7.0"
@@ -22,19 +23,18 @@
     "build": {
         "appId": "online.bizaki.app",
         "productName": "BIZAKI",
+        "files": [ "**/*" ],
         "win": {
-            "target": "nsis"
+            "target": "nsis-web"
         },
-        "nsis": {
-            "oneClick": false,
-            "allowToChangeInstallationDirectory": true
+        "nsisWeb": {
+            "artifactName": "BIZAKI-Setup.exe"
         },
         "publish": [
             {
                 "provider": "github",
                 "owner": "maxbizak",
-                "repo": "Bizaki-app",
-                "releaseType": "release"
+                "repo": "Bizaki-app"
             }
         ]
     }
