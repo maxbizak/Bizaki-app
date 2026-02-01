@@ -30,8 +30,7 @@
         "nsis": {
             "oneClick": false,
             "allowToChangeInstallationDirectory": true,
-            "artifactName": "BIZAKI-Setup-${version}.exe",
-            "disableWebInstaller": true
+            "artifactName": "BIZAKI-Setup-${version}.exe"
         },
         "publish": [
             {
