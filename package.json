@@ -1,0 +1,40 @@
+{
+    "name": "bizaki",
+    "version": "1.0.0",
+    "productName": "BIZAKI",
+    "appId": "online.bizaki.app",
+    "author": "Bizaki",
+    "description": "",
+    "main": "main.js",
+    "type": "commonjs",
+    "scripts": {
+        "start": "electron .",
+        "dist": "electron-builder"
+    },
+    "devDependencies": {
+        "electron": "^40.1.0",
+        "electron-builder": "^26.7.0"
+    },
+    "dependencies": {
+        "electron-updater": "^6.7.3"
+    },
+    "build": {
+        "appId": "online.bizaki.app",
+        "productName": "BIZAKI",
+        "win": {
+            "target": "nsis"
+        },
+        "nsis": {
+            "oneClick": false,
+            "allowToChangeInstallationDirectory": true
+        },
+        "publish": [
+            {
+                "provider": "github",
+                "owner": "maxbizak",
+                "repo": "VoiceRoom",
+                "releaseType": "release"
+            }
+        ]
+    }
+}

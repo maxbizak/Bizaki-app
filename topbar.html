@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+        :root {
+            --bg: rgba(11,15,23,0.92);
+            --border: rgba(255,255,255,0.08);
+            --text: #e5e7eb;
+            --muted: rgba(255,255,255,0.75);
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            background: transparent;
+            font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+        }
+
+        .bar {
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            /* область для перетаскивания окна */
+            -webkit-app-region: drag;
+            user-select: none;
+        }
+
+        .center {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 22px;
+            height: 22px;
+            border-radius: 7px;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.10);
+            background: rgba(255,255,255,0.06);
+        }
+
+        .title {
+            font-weight: 900;
+            letter-spacing: 0.22em;
+            font-size: 13px;
+            color: var(--text);
+        }
+
+        /* кнопки окна справа */
+        .controls {
+            position: absolute;
+            right: 10px;
+            top: 0;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            /* кнопки должны кликться => убрать drag */
+            -webkit-app-region: no-drag;
+        }
+
+        .btn {
+            width: 38px;
+            height: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.04);
+            color: var(--muted);
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            font-size: 12px;
+            line-height: 1;
+        }
+
+            .btn:hover {
+                background: rgba(255,255,255,0.07)
+            }
+
+            .btn.close:hover {
+                background: rgba(239,68,68,0.18);
+                color: #fee2e2;
+                border-color: rgba(239,68,68,0.25)
+            }
+    </style>
+</head>
+<body>
+    <div class="bar">
+        <div class="center">
+            <img class="logo" src="./logo.png" onerror="this.style.display='none'">
+            <div class="title">BIZAKI</div>
+        </div>
+
+        <div class="controls">
+            <div class="btn" id="min" title="Свернуть">—</div>
+            <div class="btn" id="max" title="Развернуть">▢</div>
+            <div class="btn close" id="close" title="Закрыть">✕</div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("min").onclick = () => window.bizakiWin.minimize();
+        document.getElementById("max").onclick = () => window.bizakiWin.maximize();
+        document.getElementById("close").onclick = () => window.bizakiWin.close();
+    </script>
+</body>
+</html>
