@@ -1,6 +1,6 @@
 {
     "name": "bizaki",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "productName": "BIZAKI",
     "appId": "online.bizaki.app",
     "description": "Bizaki voice chat desktop app",
@@ -25,7 +25,8 @@
         "productName": "BIZAKI",
         "files": [ "**/*" ],
         "win": {
-            "target": "nsis"
+            "target": "nsis",
+            "icon": "icon.ico"
         },
         "nsis": {
             "oneClick": false,
