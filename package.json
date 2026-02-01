@@ -1,6 +1,6 @@
 {
     "name": "bizaki",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "productName": "BIZAKI",
     "appId": "online.bizaki.app",
     "author": "Bizaki",
@@ -16,7 +16,8 @@
         "electron-builder": "^26.7.0"
     },
     "dependencies": {
-        "electron-updater": "^6.7.3"
+        "electron-updater": "^6.7.3",
+        "electron-log": "^5.3.0"
     },
     "build": {
         "appId": "online.bizaki.app",
