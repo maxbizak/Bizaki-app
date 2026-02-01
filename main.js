@@ -68,9 +68,11 @@ function createWindow() {
     ipcMain.on("win:close", () => win.close());
 
     // ---------- AUTO UPDATE ----------
-    // Логи автоапдейта: %AppData%/BIZAKI/logs/...
     log.transports.file.level = "info";
     autoUpdater.logger = log;
+
+    // Если захочешь максимальную стабильность ценой размера — раскомментируй:
+    // autoUpdater.disableDifferentialDownload = true;
 
     const sendUpdate = (payload) => {
         try {
@@ -100,17 +102,17 @@ function createWindow() {
         autoUpdater.quitAndInstall();
     });
 
-    // Важно: autoUpdater работает нормально только в packaged (установленное приложение)
+    // Важно: autoUpdater нормально работает только в packaged (установленное приложение)
     if (app.isPackaged) {
         autoUpdater.autoDownload = true;
 
         // Проверка при запуске
         autoUpdater.checkForUpdatesAndNotify().catch(() => { });
 
-        // Периодическая проверка (опционально)
+        // Периодическая проверка
         setInterval(() => {
             autoUpdater.checkForUpdates().catch(() => { });
-        }, 6 * 60 * 60 * 1000); // каждые 6 часов
+        }, 6 * 60 * 60 * 1000); // 6 часов
     } else {
         sendUpdate({ state: "dev", message: "Auto-update disabled (not packaged)" });
     }
